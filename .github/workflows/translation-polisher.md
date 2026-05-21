@@ -28,11 +28,6 @@ safe-outputs:
     - github.com
   noop:
     report-as-issue: false
-  add-comment:
-    target: "*"
-    pull-requests: true
-    max: 1
-    github-token: ${{ secrets.GH_AW_GITHUB_TOKEN }}
   add-labels:
     allowed: [translation-polished]
     max: 1
@@ -50,6 +45,7 @@ safe-outputs:
     allowed-files:
       - "translations/**/*.md"
     if-no-changes: "ignore"
+    max: 1
     github-token: ${{ secrets.GH_AW_GITHUB_TOKEN }}
 ---
 
@@ -123,12 +119,12 @@ Do not edit:
 
 9. Perform a final review of each changed target-language file against its English source file. Grade each file using A, A-, B+, B, B-, C, D, or F.
 10. Continue improving the translation until every changed target-language file earns **A- or higher**.
-11. If any changed target-language file remains below A- after reasonable polishing, do not push changes and do not add the `translation-polished` label. Update the pull request body with `Translation status: Needs polish` and add a pull request comment explaining the blocking issues and current file grades.
+11. If any changed target-language file remains below A- after reasonable polishing, do not push changes and do not add the `translation-polished` label. Update the pull request body with `Translation status: Needs polish` and include the blocking issues and current file grades in the managed review section.
 12. Review your final diff. If it contains anything outside `translations/**/*.md`, revert those changes.
 13. Push your changes to the target pull request branch using the safe output only when every changed target-language file is A- or higher.
 14. Update the pull request body with a final per-file grade table using the instructions in **Pull request body update**.
 15. Add the `translation-polished` label only when every changed target-language file is A- or higher.
-16. Add a short pull request comment summarizing what was polished, which languages were touched, and the final grade range.
+16. Do not add a pull request comment. The managed pull request body section is the source of truth for review status, grades, and notes.
 
 ## Safe output limits
 
@@ -137,9 +133,9 @@ Emit each safe output type at most once:
 - At most one `push_to_pull_request_branch`.
 - At most one `update_pull_request`.
 - At most one `add_labels`, and only when the `translation-polished` label is not already present on the pull request.
-- At most one `add_comment`.
+- Do not emit `add_comment`; comments are not an allowed safe output for this workflow.
 
-Do not emit duplicate label or comment requests. If a label is already present, do not emit an `add_labels` request for it. If you emit `add_labels`, include the target pull request number as `item_number`. If you need to report both a quality summary and polishing summary, combine them into the single allowed pull request comment.
+Do not emit duplicate branch push, pull request update, label, or comment requests. If a label is already present, do not emit an `add_labels` request for it. If you emit `add_labels`, include the target pull request number as `item_number`. Put the quality summary and polishing summary in the single managed pull request body section.
 
 ## Quality checklist
 
@@ -257,13 +253,6 @@ Use `Translation status: Accepted` only when every changed translated Markdown f
 
 Include one row for every changed translated Markdown file in the target pull request. Keep notes concise and specific. For below-threshold files, the note must state the highest-impact issue to fix.
 
-## Pull request comment
+## Pull request comments
 
-After polishing, add a concise comment with:
-
-1. The pull request number reviewed.
-2. The languages touched.
-3. The final grade range across changed files. Only report `A-` or higher as accepted.
-4. A short summary of improvements, such as link-label translation, terminology consistency, and readability polish.
-
-If no changes are needed, use a no-op and do not comment.
+Do not add pull request comments. Use only the managed `## Translation Quality Review` pull request body section for grades, notes, and status.
