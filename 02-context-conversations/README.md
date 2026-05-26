@@ -353,7 +353,7 @@ copilot
 
 ### Persistent Memory Across Sessions
 
-Sessions save your conversation history, but **memory** goes one step further — it lets Copilot CLI remember preferences and facts *across all sessions*, not just within a single one.
+Sessions save your conversation history, but **memory** goes one step further and lets Copilot CLI remember preferences and facts *across all sessions*, not just within a single one.
 
 ```bash
 copilot
@@ -368,7 +368,7 @@ copilot
 # Disables memory (useful if you prefer a fresh slate each time)
 ```
 
-For example, if you tell Copilot CLI "I always prefer pytest for Python testing", it can remember that preference and apply it automatically in future sessions — without you having to repeat it.
+For example, if you tell Copilot CLI "I always prefer pytest for Python testing", it can remember that preference and apply it automatically in future sessions. All without you having to repeat it.
 
 > 💡 **Memory vs. Sessions**: Sessions save the *conversation history* so you can resume a specific task. Memory saves *preferences and context* that apply across all your work. Think of sessions as project notebooks and memory as your personal notepad.
 
