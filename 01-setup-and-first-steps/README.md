@@ -430,7 +430,6 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/research` | Run deep research investigation using GitHub and web sources |
 | `/review` | Run the code-review agent to analyze changes |
 | `/terminal-setup` | Enable multiline input support (shift+enter and ctrl+enter) |
-| `/worktree [name]` | Create a new git worktree and switch into it, moving any uncommitted changes along — useful for working on multiple features side by side |
 
 ### Permissions
 
