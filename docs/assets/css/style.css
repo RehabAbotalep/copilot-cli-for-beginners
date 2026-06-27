@@ -1,0 +1,107 @@
+:root{
+  --ink:#1f2937; --cream:#fdf3df; --card:#fce9c7; --teal:#0f8a8a; --orange:#e8702a;
+  --shadow:0 14px 34px rgba(31,41,55,.16);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',Verdana,Segoe UI,sans-serif;color:var(--ink);
+  background:radial-gradient(1200px 600px at 50% -10%,#fff6e3 0%,var(--cream) 55%) ,var(--cream);
+  min-height:100vh}
+a{color:var(--teal)}
+/* chapter banner (Option 2) - full-width band, content centered */
+.banner-wrap{position:relative;width:100%;overflow:hidden;color:#fff;
+  background:linear-gradient(125deg,#11999e 0%,#0a6a72 52%,#0a4f63 100%);
+  box-shadow:0 18px 42px rgba(13,90,98,.30)}
+.banner-wrap::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  radial-gradient(600px 300px at 82% -28%,rgba(255,255,255,.16),transparent 70%),
+  radial-gradient(440px 280px at -3% 130%,rgba(232,112,42,.28),transparent 70%)}
+.banner{position:relative;z-index:2;max-width:920px;margin:0 auto;
+  padding:38px 188px 38px 44px}
+.banner>*{position:relative;z-index:2}
+.banner .chip{display:inline-block;background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.28);padding:7px 16px;border-radius:999px;
+  font:700 12px/1 'Poppins',sans-serif;letter-spacing:.18em}
+.banner h1{font:700 clamp(2rem,5.4vw,3.2rem)/1.03 'Space Grotesk','Poppins',sans-serif;
+  margin:.42em 0 .14em;letter-spacing:-.5px}
+.banner .b-sub{color:rgba(255,255,255,.88);max-width:540px;margin:0;font-size:1.05rem}
+.banner .b-track{height:7px;width:220px;margin-top:20px;border-radius:4px;overflow:hidden;
+  background:rgba(255,255,255,.22)}
+.banner .b-track i{display:block;height:100%;border-radius:4px;
+  background:linear-gradient(90deg,#ffd27a,#e8702a)}
+.banner .pipav{position:absolute;right:26px;top:50%;transform:translateY(-50%);
+  width:150px;height:150px;object-fit:cover;border-radius:50%;
+  border:4px solid rgba(255,255,255,.9);box-shadow:0 14px 30px rgba(0,0,0,.28)}
+@media(max-width:600px){
+  .banner{display:flex;flex-direction:column;align-items:center;
+    padding:30px 26px 26px;text-align:center}
+  .banner .pipav{order:-1;position:static;transform:none;
+    margin:0 0 16px;width:104px;height:104px}
+}
+/* nav */
+.nav{display:flex;gap:12px;justify-content:center;align-items:center;
+  flex-wrap:wrap;padding:18px 16px;position:sticky;top:0;z-index:5;
+  background:linear-gradient(var(--cream),rgba(253,243,223,.86) 70%,rgba(253,243,223,0))}
+.nav-btn,.nav-home{display:inline-block;text-decoration:none;font-weight:600;
+  padding:11px 20px;border-radius:999px}
+.nav-btn{background:var(--teal);color:#fff;box-shadow:0 6px 16px rgba(15,138,138,.32)}
+.nav-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.nav-home{background:#fff;border:2px solid var(--ink);color:var(--ink)}
+.nav-btn.disabled{background:#cfc8b8;color:#fff;box-shadow:none;cursor:default}
+/* comic strip */
+.strip{max-width:920px;margin:0 auto;padding:8px 18px 40px;
+  display:flex;flex-direction:column;gap:34px}
+.cell{position:relative;margin:0;background:var(--card);border-radius:22px;
+  padding:14px;box-shadow:var(--shadow)}
+.cell .panel{display:block;width:100%;height:auto;border-radius:12px}
+.cap{font-weight:700;font-size:1.06rem;color:var(--ink);margin:2px 4px 12px;
+  padding-left:24px;line-height:1.25}
+.badge{position:absolute;top:-14px;left:-14px;z-index:2;width:46px;height:46px;
+  display:grid;place-items:center;border-radius:50%;background:var(--orange);
+  color:#fff;font-weight:800;font-size:1.25rem;border:4px solid #fff;
+  box-shadow:0 6px 14px rgba(232,112,42,.4)}
+.foot{text-align:center;color:#6c6657;font-size:.92rem;padding:26px 18px 46px}
+/* home */
+body.home{display:flex;flex-direction:column;min-height:100vh}
+.home-banner{display:flex;align-items:center;gap:34px;padding:40px 44px}
+.home-banner .b-copy{min-width:0;flex:1}
+.home-banner .home-av{flex:0 0 auto;width:170px;height:170px;object-fit:cover;
+  border-radius:50%;border:4px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 30px rgba(0,0,0,.28)}
+.home-banner h1{margin:.28em 0 .2em}
+.home-banner .b-sub{font-size:1.06rem;max-width:none;margin-bottom:24px}
+.home-banner .cta{margin-top:4px}
+@media(max-width:760px){
+  .home-banner{flex-direction:column;text-align:center;padding:32px 26px}
+  .home-banner .home-av{order:-1;width:120px;height:120px;margin-bottom:6px}
+  .home-banner .b-sub{margin-left:auto;margin-right:auto}
+}
+.home-main{flex:1;width:100%;max-width:920px;margin:0 auto;padding:20px 20px 40px;
+  display:flex;flex-direction:column}
+.home-intro{margin:6px 0 0}
+.home-intro .cap{text-align:center;padding-left:0;font-size:1.12rem}
+.cta{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;
+  font-weight:700;font-size:1.12rem;padding:14px 30px;border-radius:999px;
+  box-shadow:0 10px 22px rgba(232,112,42,.4)}
+.cta:hover{transform:translateY(-2px)}
+/* custom chapter selector */
+.chapter-select{position:relative;max-width:560px;width:100%;margin:26px auto 0}
+.chapter-select summary{list-style:none;cursor:pointer;display:flex;align-items:center;
+  justify-content:space-between;background:#fff;border:2px solid #efe4cb;border-radius:16px;
+  padding:18px 24px;font-weight:700;font-size:1.14rem;color:var(--ink);
+  box-shadow:0 6px 16px rgba(31,41,55,.08);transition:border-color .2s}
+.chapter-select summary::-webkit-details-marker{display:none}
+.chapter-select summary::after{content:"";flex:0 0 auto;width:11px;height:11px;
+  border-right:3px solid var(--teal);border-bottom:3px solid var(--teal);
+  transform:rotate(45deg);transition:transform .25s;margin-left:14px}
+.chapter-select[open] summary::after{transform:rotate(-135deg)}
+.chapter-select summary:hover{border-color:var(--teal)}
+.cs-options{position:fixed;z-index:30;
+  background:#fff;border:2px solid #efe4cb;border-radius:16px;padding:8px;
+  max-height:min(56vh,360px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+  box-shadow:0 20px 44px rgba(31,41,55,.22)}
+.cs-options a,.cs-soon{display:flex;flex-direction:column;gap:2px;text-decoration:none;
+  border-radius:11px;padding:13px 16px;color:var(--ink)}
+.cs-options a:hover{background:#f4eddf}
+.cs-options b{font-size:1.08rem}
+.cs-options a span,.cs-soon span{color:#6c6657;font-weight:500;font-size:.95rem}
+.cs-soon{opacity:.55;cursor:default}
+@media(max-width:560px){.badge{width:38px;height:38px;font-size:1.05rem;top:-12px;left:-12px}}
