@@ -31,8 +31,8 @@ footer_html: <a href="https://github.com/github/copilot-cli-for-beginners">GitHu
 chapters:
 - badge: Chapter 00
   title: Quick Start
-  subtitle: Install GitHub Copilot CLI, sign in, clone the samples, and verify it works.
-  selector: Quick Start · install, sign in, verify
+  subtitle: Install GitHub Copilot CLI (or use Codespaces), sign in, clone the samples, and verify it works.
+  selector: Quick Start · install or Codespaces, sign in, verify
   panels:
   - img: ch00-install.png
     alt: Pip gives a thumbs up as software installs onto a laptop.
@@ -44,26 +44,39 @@ chapters:
       w: 720
       tx: 645
       ty: 130
-    term:
+    terminal:
     - npm install -g @github/copilot
     - 'brew install copilot-cli      # macOS / Linux alternative'
+  - img: ch00-codespaces.png
+    alt: Pip relaxes in an armchair with a laptop showing a cloud, code brackets, and a green check.
+    caption: Or skip setup with Codespaces
+    bubble:
+      lines:
+      - No install needed - open the
+      - repo in a Codespace instantly!
+      w: 660
+      tx: 500
+      ty: 300
+    terminal:
+    - '# GitHub Codespaces - zero local setup'
+    - cd samples/book-app-project && python book_app.py help
   - img: ch00-login.png
     alt: Pip holds a key beside Professor Quill, who shows a phone with a security shield.
     caption: Sign in securely
     bubbles:
     - lines:
-      - Start Copilot, then log in.
-      - Confirm the code in your browser.
-      w: 660
+      - Run copilot, then type /login
+      - at its > prompt to sign in.
+      w: 680
       tx: 520
       ty: 260
     - lines:
-      - Your sign-in stays safe. The
-      - code proves it is really you.
-      w: 620
+      - 'Lines after > are typed inside'
+      - 'Copilot, not your shell.'
+      w: 640
       tx: 1010
       ty: 540
-    term:
+    terminal:
     - copilot
     - '> /login'
   - img: ch00-clone.png
@@ -76,7 +89,7 @@ chapters:
       w: 680
       tx: 660
       ty: 300
-    term:
+    terminal:
     - git clone https://github.com/github/copilot-cli-for-beginners
     - cd copilot-cli-for-beginners
   - img: ch00-verify.png
@@ -89,7 +102,7 @@ chapters:
       w: 620
       tx: 430
       ty: 180
-    term:
+    terminal:
     - cd samples/book-app-project
     - python book_app.py list
   - img: ch00-ready.png
@@ -129,7 +142,7 @@ chapters:
       w: 550
       tx: 1160
       ty: 500
-    term:
+    terminal:
     - copilot
     - '> Explain what a dataclass is in Python in simple terms'
   - img: ch01-review.png
@@ -142,7 +155,7 @@ chapters:
       w: 560
       tx: 700
       ty: 330
-    term:
+    terminal:
     - '> Review @samples/book-app-project/book_app.py for code quality issues'
   - img: ch01-modes.png
     alt: Professor Quill points at three icons - a map, a waiter, and a drive-through - while Pip thinks.
@@ -164,7 +177,7 @@ chapters:
       w: 400
       tx: 1190
       ty: 195
-    term:
+    terminal:
     - 'copilot              # Interactive - explore and iterate'
     - 'copilot --plan       # Plan - map it out first'
     - 'copilot -p "..."     # Programmatic - one-shot answer'
@@ -179,7 +192,7 @@ chapters:
       w: 640
       tx: 800
       ty: 320
-    term:
+    terminal:
     - '/help     # show all commands'
     - '/clear    # start a fresh conversation'
     - '/model    # show or switch the AI model'
@@ -204,8 +217,8 @@ chapters:
       ty: 490
 - badge: Chapter 02
   title: Context and Conversations
-  subtitle: Point Copilot at your files with the @ symbol and resume work across sessions.
-  selector: Context · the @ symbol & sessions
+  subtitle: Point Copilot at files with the @ symbol, manage context and memory, and resume work across sessions.
+  selector: Context · @ symbol, memory & sessions
   panels:
   - img: ch02-context.png
     alt: Pip gestures while explaining to Professor Quill at a desk with a laptop showing code.
@@ -220,10 +233,13 @@ chapters:
     - lines:
       - Context turns a guess
       - into a real answer.
+      auto: false
       w: 470
-      tx: 760
-      ty: 250
-    term:
+      x: 870
+      y: 275
+      tx: 1000
+      ty: 1100
+    terminal:
     - copilot
     - '> Review @samples/book-app-project/books.py'
   - img: ch02-atsyntax.png
@@ -236,7 +252,7 @@ chapters:
       w: 600
       tx: 600
       ty: 210
-    term:
+    terminal:
     - '> Explain what @samples/book-app-project/utils.py does'
   - img: ch02-multifile.png
     alt: Pip holds up two pages of code, comparing them side by side.
@@ -248,7 +264,7 @@ chapters:
       w: 660
       tx: 600
       ty: 300
-    term:
+    terminal:
     - '> Compare @samples/book-app-project/book_app.py'
     - '  @samples/book-app-project/books.py for consistency'
   - img: ch02-sessions.png
@@ -265,11 +281,59 @@ chapters:
       - Sessions save automatically.
       - Nothing is lost.
       w: 600
-      tx: 1180
-      ty: 560
-    term:
+      auto: false
+      x: 870
+      y: 375
+      tx: 1000
+      ty: 705
+    terminal:
     - 'copilot --continue    # resume your last session'
     - 'copilot --resume      # or pick one from a list'
+  - img: ch02-memory.png
+    alt: Professor Quill points at a glowing brain icon above a laptop while Pip holds a notebook of saved preferences.
+    caption: Memory that spans every session
+    bubbles:
+    - lines:
+      - Memory recalls my preferences
+      - across all my sessions.
+      w: 620
+      tx: 1100
+      ty: 210
+    - lines:
+      - Tell it once -
+      - it carries forward.
+      w: 420
+      tx: 385
+      ty: 560
+    terminal:
+    - copilot
+    - '> /memory show    # what Copilot remembers'
+  - img: ch02-context-limit.png
+    alt: Pip compacts a tall stack of papers beside a desk with a gauge meter that is nearly full.
+    caption: Manage the context window
+    bubble:
+      lines:
+      - Window filling up? Compact it,
+      - or clear and start fresh.
+      w: 640
+      tx: 555
+      ty: 230
+    terminal:
+    - '> /context     # see how full the window is'
+    - '> /compact     # summarize to free up space'
+    - '> /new         # create a new session'
+  - img: ch02-images.png
+    alt: Pip holds up a framed screenshot of an app interface and inspects it with a magnifying glass next to a laptop.
+    caption: Debug with screenshots
+    bubble:
+      lines:
+      - Stuck on a UI bug? Point me
+      - at a screenshot to see it.
+      w: 600
+      tx: 480
+      ty: 200
+    terminal:
+    - '> Why is this layout broken? @screenshot.png  # or copy/paste the image'
 - badge: Chapter 03
   title: Development Workflows
   subtitle: Review, refactor, debug, test, and ship code with everyday Copilot workflows.
@@ -291,7 +355,7 @@ chapters:
       w: 470
       tx: 390
       ty: 470
-    term:
+    terminal:
     - copilot
     - '> Review @samples/book-app-project/book_app.py for code quality'
   - img: ch03-review.png
@@ -304,8 +368,21 @@ chapters:
       w: 560
       tx: 560
       ty: 240
-    term:
+    terminal:
     - '> Review @samples/book-app-project/book_app.py for code quality'
+  - img: ch03-refactor.png
+    alt: Pip tidies tangled code into neat, clean blocks on a laptop screen.
+    caption: Refactor with confidence
+    bubble:
+      lines:
+      - Messy code? I reshape it
+      - without changing what it does.
+      w: 640
+      tx: 470
+      ty: 250
+    terminal:
+    - '> Refactor @samples/book-app-project/books.py'
+    - '  to separate concerns and clearer names'
   - img: ch03-debug.png
     alt: Pip wears a detective hat and uses a magnifying glass to find a bug on a laptop.
     caption: The bug detective
@@ -316,17 +393,17 @@ chapters:
       w: 600
       tx: 560
       ty: 250
-    term:
+    terminal:
     - '> Why does this fail? Find the bug in'
     - '  @samples/book-app-project/books.py'
   - img: ch03-test.png
     alt: Pip gives a thumbs up beside Professor Quill near a laptop showing green checkmarks.
-    caption: Refactor, test, and ship
+    caption: Test, then ship it
     bubbles:
     - lines:
-      - Refactor it, test it,
-      - then ship it with git.
-      w: 520
+      - Test it, then
+      - ship it with git.
+      w: 480
       tx: 600
       ty: 210
     - lines:
@@ -335,7 +412,7 @@ chapters:
       w: 560
       tx: 1180
       ty: 540
-    term:
+    terminal:
     - '> @samples/book-app-project/books.py Add unit tests'
     - 'pytest    # run the new tests'
 - badge: Chapter 04
@@ -359,7 +436,7 @@ chapters:
       w: 420
       tx: 900
       ty: 500
-    term:
+    terminal:
     - copilot
     - '> /agent          # list and pick an agent'
   - img: ch04-builtin.png
@@ -372,7 +449,7 @@ chapters:
       w: 560
       tx: 560
       ty: 240
-    term:
+    terminal:
     - '> /review     # built-in code-review agent'
     - '> /plan       # built-in planning agent'
   - img: ch04-custom.png
@@ -385,9 +462,28 @@ chapters:
       w: 560
       tx: 600
       ty: 300
-    term:
+    terminal:
     - cp .github/agents/python-reviewer.agent.md \
     - '   ~/.copilot/agents/'
+  - img: ch04-multiagent.png
+    alt: Pip and Professor Quill watch three colorful robot agents passing a glowing task token around a laptop.
+    caption: Agents work as a team
+    bubbles:
+    - lines:
+      - Big task? Several specialist
+      - agents team up on it.
+      w: 580
+      tx: 330
+      ty: 330
+    - lines:
+      - Each handles the part
+      - it knows best.
+      w: 460
+      tx: 560
+      ty: 610
+    terminal:
+    - copilot
+    - '> Have the reviewer and tester agents check this'
   - img: ch04-instructions.png
     alt: Pip gestures toward a laptop with a gear while Professor Quill watches.
     caption: Set project standards once
@@ -403,7 +499,7 @@ chapters:
       w: 540
       tx: 1300
       ty: 560
-    term:
+    terminal:
     - '# Add an AGENTS.md file to your repo'
     - '# Copilot reads it automatically'
 - badge: Chapter 05
@@ -427,7 +523,7 @@ chapters:
       w: 440
       tx: 945
       ty: 440
-    term:
+    terminal:
     - copilot
     - '> /skills list      # see available skills'
   - img: ch05-auto.png
@@ -440,7 +536,7 @@ chapters:
       w: 560
       tx: 560
       ty: 240
-    term:
+    terminal:
     - '> Check @samples/book-app-project/book_app.py for quality'
   - img: ch05-invoke.png
     alt: Pip presses a large glowing button next to a laptop.
@@ -452,7 +548,7 @@ chapters:
       w: 520
       tx: 560
       ty: 300
-    term:
+    terminal:
     - '> /code-checklist Check'
     - '  @samples/book-app-project/book_app.py'
   - img: ch05-create.png
@@ -471,9 +567,28 @@ chapters:
       w: 470
       tx: 1180
       ty: 560
-    term:
+    terminal:
     - mkdir -p .github/skills/security-audit
     - '# then add a SKILL.md inside'
+  - img: ch05-vs.png
+    alt: Professor Quill gestures at three glowing icons - an expert badge, a drill bit, and a plug - while Pip compares them.
+    caption: Agents vs Skills vs MCP
+    bubbles:
+    - lines:
+      - Agents think, skills do the
+      - steps, MCP connects services.
+      w: 600
+      tx: 290
+      ty: 545
+    - lines:
+      - The right tool
+      - for each job.
+      w: 400
+      tx: 1185
+      ty: 250
+    terminal:
+    - '# Agent = broad expertise   Skill = task steps'
+    - '# MCP   = live data from services (see Chapter 06)'
 - badge: Chapter 06
   title: MCP Servers
   subtitle: Add new powers to Copilot with MCP servers for GitHub, files, and docs.
@@ -495,7 +610,7 @@ chapters:
       w: 420
       tx: 700
       ty: 520
-    term:
+    terminal:
     - copilot
     - '> /mcp show      # see configured servers'
   - img: ch06-github.png
@@ -508,7 +623,7 @@ chapters:
       w: 560
       tx: 560
       ty: 240
-    term:
+    terminal:
     - '> List the latest commits in this repository'
   - img: ch06-add.png
     alt: Pip connects a small server device as glowing icons rise from it.
@@ -520,7 +635,7 @@ chapters:
       w: 560
       tx: 560
       ty: 300
-    term:
+    terminal:
     - '> /mcp search    # browse and add servers'
   - img: ch06-workflow.png
     alt: Pip thinks beside a laptop with glowing icons while Professor Quill looks on.
@@ -538,7 +653,7 @@ chapters:
       w: 440
       tx: 1090
       ty: 560
-    term:
+    terminal:
     - '> Read the docs, then open a pull request'
 - badge: Chapter 07
   title: Putting It Together
@@ -561,7 +676,7 @@ chapters:
       w: 440
       tx: 900
       ty: 500
-    term:
+    terminal:
     - copilot
     - '> Plan a feature, then build it step by step'
   - img: ch07-idea.png
@@ -574,7 +689,7 @@ chapters:
       w: 560
       tx: 460
       ty: 230
-    term:
+    terminal:
     - '> @samples/book-app-project/books.py'
     - '  Add a get_unread_books method'
   - img: ch07-flow.png
@@ -587,7 +702,7 @@ chapters:
       w: 520
       tx: 470
       ty: 240
-    term:
+    terminal:
     - '> /plan       # map it out first'
     - '> Build it, add tests, then open a PR'
   - img: ch07-done.png
@@ -606,6 +721,6 @@ chapters:
       w: 470
       tx: 1080
       ty: 580
-    term:
+    terminal:
     - 'gh pr create     # open your pull request'
     - '# You finished the course!'
