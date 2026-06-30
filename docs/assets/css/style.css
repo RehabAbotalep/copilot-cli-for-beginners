@@ -339,19 +339,19 @@ body.presenting .present-fab{display:none}
 .q-badge{font:700 .74rem/1 'Poppins',sans-serif;letter-spacing:.14em;text-transform:uppercase;
   color:var(--teal)}
 .q-name{font-weight:700;font-size:1.12rem;line-height:1.2}
-.q-status{font-size:.86rem;font-weight:500;color:#8a8470}
+.q-status{font-size:.86rem;font-weight:500;color:#6c6657}
 .q-node.is-done .q-link{background:linear-gradient(160deg,#eafaf0,#d6f3e1);border-color:#7cd0a1}
 .q-node.is-done .q-medal{opacity:1;transform:scale(1)}
 .q-node.is-done .q-status{color:#15803d;font-weight:700}
 .quest-foot{text-align:center;margin:22px 0 0}
-.quest-reset{cursor:pointer;background:none;border:none;color:#8a8470;font:600 .86rem/1 'Poppins',sans-serif;
+.quest-reset{cursor:pointer;background:none;border:none;color:#6c6657;font:600 .86rem/1 'Poppins',sans-serif;
   text-decoration:underline;text-underline-offset:3px;padding:6px 10px;border-radius:8px}
 .quest-reset:hover{color:var(--accent)}
 .quest-reset:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 
 /* --- Completion certificate --- */
 .cert-wrap{margin:30px auto 0;max-width:720px;text-align:center}
-.cert-locked{color:#8a8470;font-weight:500;background:#faf4e6;border:1px dashed #e0d3b6;
+.cert-locked{color:#6c6657;font-weight:500;background:#faf4e6;border:1px dashed #e0d3b6;
   border-radius:14px;padding:16px 18px;margin:0}
 .cert-congrats{font:700 1.5rem/1.15 'Space Grotesk','Poppins',sans-serif;margin:0 0 16px}
 .cert-form{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:flex-end;margin:0 0 22px}
@@ -376,7 +376,7 @@ body.presenting .present-fab{display:none}
   border-bottom:2px solid #e7dcc4;display:inline-block;padding:0 18px 8px}
 .cert-body{color:#6c6657;margin:14px 0 4px;font-weight:500}
 .cert-course{font:700 1.25rem/1.2 'Poppins',sans-serif;margin:0 0 18px}
-.cert-date{color:#8a8470;font-size:.95rem;margin:0 0 18px}
+.cert-date{color:#6c6657;font-size:.95rem;margin:0 0 18px}
 .cert-sign{font-weight:600;color:var(--ink);margin:0;font-style:italic}
 
 /* --- Presentation / slideshow overlay --- */
