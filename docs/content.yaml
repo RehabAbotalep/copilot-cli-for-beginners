@@ -37,7 +37,7 @@ site:
   close_label: Close                                     # accessible label for modal close buttons
   # --- Quest map + progress dashboard (home page) ---
   quest:
-    heading: Your Learning Quest
+    heading: Your Learning Quest Begins
     subheading: Complete chapters to light up the map, earn medals, build a daily streak, and unlock your certificate.
     level_label: Level {n}
     xp_label: '{xp} XP'
@@ -1172,7 +1172,7 @@ chapters:
       ty: 300
     terminal:
     - '> /mcp search    # browse and add servers'
-    - '# e.g. add a filesystem server to read and write local files'
+    - '# add a markdown server, documentation server, Playwright server, etc.'
   - img: ch06-workflow.webp
     link: '#multi-server-workflows'
     alt: Pip thinks beside a laptop with glowing icons while Professor Quill looks on.
@@ -1310,8 +1310,8 @@ chapters:
       tx: 1080
       ty: 580
     terminal:
-    - 'gh pr create     # open your pull request'
-    - '# You finished the course!'
+    - 'copilot'
+    - '> Build something amazing!'
 
 # ---------------------------------------------------------------------------
 # art: project-specific image-generation config (cast, style, brand/logo,
